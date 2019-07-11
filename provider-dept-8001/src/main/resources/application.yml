@@ -1,0 +1,15 @@
+server:
+  port: 8001
+mybatis:
+  config-location: classpath:mybatis/mybatis.cfg.xml
+  mapper-locations: mybatis/mapper/**/*.xml
+  type-aliases-package: com.hiscat.springcloud.microservice.entity
+spring:
+  application:
+    name: microservice-dept
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource
+    username: root
+    password: Xiebo0409
+    url: jdbc:mysql://localhost:3306/microservice?serverTimezone=UTC
+#debug: true

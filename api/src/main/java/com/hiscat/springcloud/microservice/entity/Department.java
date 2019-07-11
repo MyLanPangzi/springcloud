@@ -1,4 +1,4 @@
-package entity;
+package com.hiscat.springcloud.microservice.entity;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

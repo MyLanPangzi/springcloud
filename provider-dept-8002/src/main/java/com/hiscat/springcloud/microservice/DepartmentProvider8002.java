@@ -1,0 +1,12 @@
+package com.hiscat.springcloud.microservice;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+@SpringBootApplication
+//@EnableDiscoveryClient
+public class DepartmentProvider8002 {
+    public static void main(String[] args) {
+        SpringApplication.run(DepartmentProvider8002.class, args);
+    }
+}

@@ -1,34 +1,30 @@
-package com.hiscat.sprigncloud.controller;
+package com.hiscat.springcloud.microservice.controller;
 
 import com.hiscat.springcloud.microservice.entity.Department;
+import com.hiscat.springcloud.microservice.service.DepartmentService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.cloud.client.loadbalancer.LoadBalanced;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.client.RestTemplate;
 
 import java.util.List;
 
 @RestController
 public class DepartmentController {
 
-    private static final String URL = "http://PROVIDER-DEPT/";
-
     @Autowired
-    RestTemplate restTemplate;
+    DepartmentService departmentService;
 
     @GetMapping("/dept/{id}")
     public Department get(@PathVariable Long id) {
-        return this.restTemplate.getForObject(URL + "/dept/" + id, Department.class);
+        return departmentService.get(id);
     }
 
     @PostMapping("/dept/")
     public boolean save(@RequestBody Department department) {
-        return this.restTemplate.postForObject(URL + "/dept/", department, Boolean.class);
+        return this.departmentService.save(department);
     }
 
     @GetMapping("/depts/")
     public List<Department> departments() {
-        return this.restTemplate.getForObject(URL + "/depts/", List.class);
+        return this.departmentService.list();
     }
-
 }

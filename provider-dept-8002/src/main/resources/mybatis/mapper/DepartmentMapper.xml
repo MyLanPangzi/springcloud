@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hiscat.springcloud.microservice.mapper.DepartmentMapper">
+    <insert
+            id="insert"
+            keyProperty="id"
+            useGeneratedKeys="true"
+
+    >
+        insert into microservice.department (name, db_source)
+        values (#{name}, DATABASE());
+    </insert>
+
+    <select
+            id="selectById"
+            resultType="Department"
+    >
+        select id, name, db_source
+        from microservice.department
+        where id = #{id};
+    </select>
+
+    <select
+            id="selectAll"
+            resultType="Department"
+    >
+        select id, name, db_source
+        from microservice.department;
+    </select>
+</mapper>

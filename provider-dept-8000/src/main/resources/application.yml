@@ -1,0 +1,33 @@
+server:
+  port: 8000
+mybatis:
+  config-location: classpath:mybatis/mybatis.cfg.xml
+  mapper-locations: mybatis/mapper/**/*.xml
+  type-aliases-package: com.hiscat.springcloud.microservice.entity
+spring:
+  application:
+    name: provider-dept
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource
+    username: root
+    password: Xiebo0409
+    url: jdbc:mysql://localhost:3306/microservice?serverTimezone=UTC
+  devtools:
+    livereload:
+      enabled: true
+#debug: true
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://server7001.com:7001/eureka/,http://server7002.com:7002/eureka/,http://server7003.com:7003/eureka/
+  instance:
+    instance-id: provider-dept-8000
+    prefer-ip-address: true
+
+info:
+  app.name: microservice
+  company.name: www.hiscat.com
+  build.artifactId: $project.artifactId$
+  build.version: $project.version$
+
+

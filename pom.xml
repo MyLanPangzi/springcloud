@@ -12,6 +12,7 @@
         <module>provider-dept-8002</module>
         <module>provider-dept-8003</module>
         <module>provider-dept-8000</module>
+        <module>consumer-dept-feign</module>
     </modules>
     <parent>
         <groupId>org.springframework.boot</groupId>

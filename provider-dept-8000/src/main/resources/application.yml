@@ -29,5 +29,4 @@ info:
   company.name: www.hiscat.com
   build.artifactId: $project.artifactId$
   build.version: $project.version$
-
-
+debug: true

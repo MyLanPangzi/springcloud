@@ -9,7 +9,7 @@
             useGeneratedKeys="true"
 
     >
-        insert into microservice.department (name, db_source)
+        insert into department (name, db_source)
         values (#{name}, DATABASE());
     </insert>
 
@@ -18,7 +18,7 @@
             resultType="Department"
     >
         select id, name, db_source
-        from microservice.department
+        from department
         where id = #{id};
     </select>
 
@@ -27,6 +27,6 @@
             resultType="Department"
     >
         select id, name, db_source
-        from microservice.department;
+        from department;
     </select>
 </mapper>

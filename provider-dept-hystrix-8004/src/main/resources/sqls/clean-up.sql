@@ -1,0 +1,1 @@
+delete from microservice.department where 1;

@@ -1,11 +1,10 @@
-package com.hiscat.sprigncloud.controller;
+package com.hiscat.springcloud.microservice.controller;
 
 import com.hiscat.springcloud.microservice.entity.Department;
 import com.hiscat.springcloud.microservice.service.DepartmentService;
+import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.cloud.client.loadbalancer.LoadBalanced;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.client.RestTemplate;
 
 import java.util.List;
 
@@ -16,8 +15,20 @@ public class DepartmentController {
     DepartmentService departmentService;
 
     @GetMapping("/dept/{id}")
+    @HystrixCommand(fallbackMethod = "getError")
     public Department get(@PathVariable Long id) {
-        return departmentService.get(id);
+        Department department = departmentService.get(id);
+        if (department == null) {
+            throw new NullPointerException();
+        }
+        return department;
+    }
+
+    public Department getError(Long id) {
+        return Department
+                .builder()
+                .name(id + " is not exists")
+                .build();
     }
 
     @PostMapping("/dept/")
@@ -29,5 +40,4 @@ public class DepartmentController {
     public List<Department> departments() {
         return this.departmentService.list();
     }
-
 }

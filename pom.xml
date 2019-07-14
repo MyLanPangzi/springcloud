@@ -5,14 +5,15 @@
     <packaging>pom</packaging>
     <modules>
         <module>api</module>
-        <module>consumer-dept-80</module>
         <module>eureka-server</module>
         <module>eureka-server-7002</module>
         <module>eureka-server-7003</module>
+        <module>consumer-dept-80</module>
         <module>provider-dept-8002</module>
         <module>provider-dept-8003</module>
         <module>provider-dept-8000</module>
-        <module>consumer-dept-feign</module>
+        <module>provider-dept-hystrix-8004</module>
+        <module>consumer-dept-hystrix</module>
     </modules>
     <parent>
         <groupId>org.springframework.boot</groupId>

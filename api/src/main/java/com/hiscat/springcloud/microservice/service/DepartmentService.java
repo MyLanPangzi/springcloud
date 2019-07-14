@@ -1,6 +1,7 @@
 package com.hiscat.springcloud.microservice.service;
 
 import com.hiscat.springcloud.microservice.entity.Department;
+import com.hiscat.springcloud.microservice.service.impl.DepartmentServiceImpl;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -9,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 
 import java.util.List;
 
-@FeignClient("PROVIDER-DEPT")
+@FeignClient(name = "PROVIDER-DEPT", fallback = DepartmentServiceImpl.class)
 public interface DepartmentService {
     @PostMapping("/dept/")
     boolean save(@RequestBody Department department);
@@ -19,4 +20,5 @@ public interface DepartmentService {
 
     @GetMapping("/depts/")
     List<Department> list();
+
 }

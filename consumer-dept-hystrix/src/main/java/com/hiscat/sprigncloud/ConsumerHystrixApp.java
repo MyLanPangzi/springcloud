@@ -1,18 +1,20 @@
 package com.hiscat.sprigncloud;
 
-import com.hiscat.sprigncloud.controller.DepartmentController;
-import com.hiscat.springcloud.microservice.service.DepartmentService;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
 import org.springframework.cloud.openfeign.EnableFeignClients;
-import org.springframework.context.annotation.ComponentScan;
 
 @SpringBootApplication
 @EnableEurekaClient
-@EnableFeignClients(basePackages = "com.hiscat.springcloud")
-public class FeignConsumerApp {
+@EnableFeignClients(basePackages = "com.hiscat.springcloud.microservice")
+public class ConsumerHystrixApp {
     public static void main(String[] args) {
-        SpringApplication.run(FeignConsumerApp.class, args);
+        SpringApplication.run(ConsumerHystrixApp.class, args);
+//        Set set = new HashSet();
+//        set.add("aaa");
+//        set.add("bbb");
+//        set.add("aaa");
+//        System.out.println(set.size());
     }
 }

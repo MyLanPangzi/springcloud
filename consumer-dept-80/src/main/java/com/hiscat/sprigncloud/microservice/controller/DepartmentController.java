@@ -1,8 +1,7 @@
-package com.hiscat.sprigncloud.controller;
+package com.hiscat.sprigncloud.microservice.controller;
 
 import com.hiscat.springcloud.microservice.entity.Department;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.cloud.client.loadbalancer.LoadBalanced;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.client.RestTemplate;
 

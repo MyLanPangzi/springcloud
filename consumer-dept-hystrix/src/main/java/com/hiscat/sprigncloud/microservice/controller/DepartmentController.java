@@ -1,4 +1,4 @@
-package com.hiscat.sprigncloud.controller;
+package com.hiscat.sprigncloud.microservice.controller;
 
 import com.hiscat.springcloud.microservice.entity.Department;
 import com.hiscat.springcloud.microservice.service.DepartmentService;
@@ -13,7 +13,7 @@ public class DepartmentController {
     @Autowired
     DepartmentService departmentService;
 
-    @GetMapping("/dept/{id}")
+    @GetMapping("/consumer/dept/{id}")
     public Department get(@PathVariable Long id) {
         return this.departmentService.get(id);
     }

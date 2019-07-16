@@ -2,10 +2,11 @@ package com.hiscat.springcloud.microservice.service.impl;
 
 import com.hiscat.springcloud.microservice.entity.Department;
 import com.hiscat.springcloud.microservice.service.DepartmentService;
+import org.springframework.stereotype.Component;
 
 import java.util.List;
 
-//@Component
+@Component
 public class DepartmentServiceImpl implements DepartmentService {
 
     @Override

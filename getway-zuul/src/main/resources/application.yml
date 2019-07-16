@@ -1,0 +1,20 @@
+zuul:
+  routes:
+    dept:
+      serviceId: provider-dept
+      path: /api/**
+  prefix: /common
+  ignored-services: '*'
+server:
+  port: 8005
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://server7002.com:7001/eureka/,http://server7002.com:7002/eureka/,http://server7003.com:7003/eureka/
+  instance:
+    instance-id: hiscat.com
+
+spring:
+  application:
+    name: gateway-zuul

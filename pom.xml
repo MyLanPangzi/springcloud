@@ -14,6 +14,7 @@
         <module>provider-dept-8000</module>
         <module>provider-dept-hystrix-8004</module>
         <module>consumer-dept-hystrix</module>
+        <module>getway-zuul</module>
     </modules>
     <parent>
         <groupId>org.springframework.boot</groupId>
